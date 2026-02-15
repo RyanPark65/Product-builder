@@ -1,6 +1,8 @@
 
 const generatorBtn = document.getElementById("generator-btn");
 const numberElements = document.querySelectorAll(".number");
+const themeSwitcher = document.getElementById("theme-switcher");
+const body = document.body;
 
 generatorBtn.addEventListener("click", () => {
     const numbers = [];
@@ -22,4 +24,13 @@ generatorBtn.addEventListener("click", () => {
             element.style.opacity = "1";
         }, 100 * (index + 1));
     });
+});
+
+themeSwitcher.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+    if (body.classList.contains("dark-mode")) {
+        themeSwitcher.textContent = "Light Mode";
+    } else {
+        themeSwitcher.textContent = "Dark Mode";
+    }
 });

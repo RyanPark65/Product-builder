@@ -1,30 +1,54 @@
 
 body {
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: "Helvetica Neue", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
+:root {
+    --bg-color: #f0f0f0;
+    --text-color: #333;
+    --container-bg: #fff;
+    --number-bg: #f8f8f8;
+    --number-color: #333;
+    --button-bg: #4CAF50;
+    --button-text: white;
+}
+
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --container-bg: #2a2a2a;
+    --number-bg: #3a3a3a;
+    --number-color: #f0f0f0;
+    --button-bg: #5a5a5a;
+    --button-text: #f0f0f0;
+}
+
 .container {
-    background-color: #fff;
+    background-color: var(--container-bg);
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 15px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     max-width: 600px;
     width: 90%;
+    transition: background-color 0.3s;
 }
 
 h1 {
     font-size: 3rem;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 30px;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
 .lotto-numbers {
@@ -37,21 +61,21 @@ h1 {
 .number {
     width: 60px;
     height: 60px;
-    background-color: #f8f8f8;
+    background-color: var(--number-bg);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
     font-weight: bold;
-    color: #333;
+    color: var(--number-color);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
 #generator-btn {
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--button-bg);
+    color: var(--button-text);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -70,6 +94,27 @@ h1 {
     box-shadow: 0 12px 24px rgba(76, 175, 80, 0.5);
 }
 
+#theme-switcher {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+#theme-switcher:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
 @media (max-width: 480px) {
     h1 {
         font-size: 2.5rem;
@@ -81,7 +126,8 @@ h1 {
         font-size: 1.8rem;
     }
 
-    #generator-btn {
+    #generator-btn,
+    #theme-switcher {
         font-size: 1rem;
         padding: 12px 28px;
     }
