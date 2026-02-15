@@ -1,28 +1,28 @@
-
-# Lottery Number Generator
+# MBTI Personality Test Application
 
 ## Overview
 
-This project is a simple web application that generates random lottery numbers. The user can click a button to generate a new set of numbers.
+This is a web application that allows users to take an MBTI personality test and see their results. The application presents a series of questions and, based on the user's answers, calculates their MBTI type.
 
-## Style, Design, and Features
+## Features
 
-*   **Layout:** The application has a clean and simple layout with a centered content area.
-*   **Typography:** The application uses modern fonts to create a clear and readable interface.
-*   **Color Scheme:** The color scheme is vibrant and energetic, with a mix of bright colors and a textured background.
-*   **Visual Effects:** The application uses multi-layered drop shadows to create a sense of depth and a "glow" effect on interactive elements.
-*   **Interactivity:** The user can generate new lottery numbers by clicking a button. The numbers are displayed in a visually appealing way.
-*   **Dark/White Mode:** The application has a button to toggle between dark and white modes.
-*   **Accessibility:** The application is designed to be accessible to all users, with clear and concise text and a simple interface.
-*   **Responsiveness:** The application is responsive and works well on both desktop and mobile devices.
+*   **MBTI Test:** A series of questions to determine the user's personality type.
+*   **Paged Questions:** Questions are presented in pages of 10 to not overwhelm the user.
+*   **Result Calculation:** The application calculates the MBTI type based on the user's answers.
+*   **Result Display:** The user's MBTI type is displayed at the end of the test.
 
-## Current Request
+## Design and Style
 
-The user wants to add a dark mode/white mode feature to the application.
+*   **Layout:** A clean and modern layout with a focus on readability.
+*   **Fonts:** Uses a clean and readable sans-serif font.
+*   **Colors:** A simple color palette that is easy on the eyes.
+*   **Interactivity:** Smooth transitions between pages and interactive elements.
 
-### Plan
+## Current Task
 
-1.  **Modify `index.html`:** Add a theme switcher button.
-2.  **Modify `style.css`:** Add CSS variables for light and dark themes and a `.dark-mode` class.
-3.  **Modify `main.js`:** Add an event listener to the theme switcher button to toggle the `.dark-mode` class on the `body`.
-4.  **Update `blueprint.md`:** Document the new dark mode feature.
+Implement the initial version of the MBTI personality test application.
+
+*   [x] Create the HTML structure for the quiz.
+*   [x] Create the JavaScript logic for the quiz.
+*   [x] Style the quiz using CSS.
+*   [x] Find and add MBTI questions.
