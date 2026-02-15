@@ -1,30 +1,21 @@
-# MBTI Personality Test Application
+# 프로젝트: 저녁 메뉴 추천
 
-## Overview
+## 개요
 
-This is a web application that allows users to take an MBTI personality test and see their results. The application presents a series of questions and, based on the user's answers, calculates their MBTI type.
+이 프로젝트는 사용자에게 저녁 식사 메뉴를 추천하는 간단하고 아름다운 웹 애플리케이션을 만드는 것을 목표로 합니다. 각 추천 메뉴에는 매력적인 이미지와 간단한 레시피가 함께 제공되어 사용자가 쉽게 따라 할 수 있도록 돕습니다.
 
-## Features
+## 디자인 및 기능
 
-*   **MBTI Test:** A series of questions to determine the user's personality type.
-*   **Paged Questions:** Questions are presented in pages of 10 to not overwhelm the user.
-*   **Result Calculation:** The application calculates the MBTI type based on the user's answers.
-*   **Result Display:** The user's MBTI type is displayed at the end of the test.
-*   **Korean Language Support:** The application is now localized in Korean.
+- **모던하고 깔끔한 UI:** 사용자가 콘텐츠에 집중할 수 있도록 미니멀한 디자인을 적용합니다.
+- **반응형 레이아웃:** 모바일과 데스크톱 등 다양한 화면 크기에서 최적의 경험을 제공합니다.
+- **Web Components 활용:** 재사용 가능한 `dinner-suggestion` 카드를 만들어 코드의 효율성과 유지보수성을 높입니다.
+- **동적 콘텐츠 로딩:** JavaScript를 사용하여 메뉴 데이터를 동적으로 화면에 표시합니다.
 
-## Design and Style
+## 현재 구현 계획
 
-*   **Layout:** A clean and modern layout with a focus on readability.
-*   **Fonts:** Uses a clean and readable sans-serif font.
-*   **Colors:** A simple color palette that is easy on the eyes.
-*   **Interactivity:** Smooth transitions between pages and interactive elements.
-
-## Current Task
-
-Implement the initial version of the MBTI personality test application.
-
-*   [x] Create the HTML structure for the quiz.
-*   [x] Create the JavaScript logic for the quiz.
-*   [x] Style the quiz using CSS.
-*   [x] Find and add MBTI questions.
-*   [x] Translate the application to Korean.
+1.  **`index.html` 구조 설정:** 페이지의 기본 골격을 만들고, CSS와 JavaScript 파일을 연결합니다.
+2.  **`style.css` 스타일링:** 전체적인 레이아웃, 글꼴, 색상 및 `dinner-suggestion` 카드 디자인을 정의합니다.
+3.  **`main.js` 로직 구현:**
+    -   `dinner-suggestion` 웹 컴포넌트를 정의합니다.
+    -   추천 메뉴 데이터 (이름, 레시피, 이미지 URL)를 배열로 만듭니다.
+    -   데이터를 기반으로 동적으로 `dinner-suggestion` 카드를 생성하고 화면에 추가합니다.

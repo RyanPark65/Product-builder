@@ -1,60 +1,42 @@
+:root {
+    --primary-color: #ff6f61;
+    --secondary-color: #fdd835;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --card-background: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --font-family: 'Gowun Dodum', sans-serif;
+}
+
 body {
-    font-family: sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
     margin: 0;
+    padding: 20px;
+    line-height: 1.6;
 }
 
-#quiz-container, #result-container {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 600px;
-}
-
-h1 {
+header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 40px;
 }
 
-.question {
-    margin-bottom: 1.5rem;
+header h1 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
 }
 
-.question p {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+header p {
+    font-size: 1.2em;
+    color: #666;
 }
 
-.question label {
-    display: block;
-    margin-bottom: 0.5rem;
-    cursor: pointer;
-}
-
-#next-btn {
-    display: block;
-    margin: 2rem auto 0;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-#next-btn:hover {
-    background-color: #0056b3;
-}
-
-#result {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
+#suggestion-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
