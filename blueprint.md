@@ -10,6 +10,7 @@ This is a web application that allows users to take an MBTI personality test and
 *   **Paged Questions:** Questions are presented in pages of 10 to not overwhelm the user.
 *   **Result Calculation:** The application calculates the MBTI type based on the user's answers.
 *   **Result Display:** The user's MBTI type is displayed at the end of the test.
+*   **Korean Language Support:** The application is now localized in Korean.
 
 ## Design and Style
 
@@ -26,3 +27,4 @@ Implement the initial version of the MBTI personality test application.
 *   [x] Create the JavaScript logic for the quiz.
 *   [x] Style the quiz using CSS.
 *   [x] Find and add MBTI questions.
+*   [x] Translate the application to Korean.
