@@ -138,29 +138,18 @@ main {
     text-decoration: underline;
 }
 
-.restaurant-list {
+.cooking-tip {
     margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-    width: 100%;
-}
-
-.restaurant-list h3 {
-    font-size: 1.2em;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.restaurant-list ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.restaurant-list li {
+    padding: 15px;
     background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 8px;
+    border-left: 4px solid var(--secondary-color);
+    text-align: left;
+}
+
+.cooking-tip h3 {
+    font-size: 1.1em;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
 }
 
 
