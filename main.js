@@ -17,28 +17,34 @@ class DinnerSuggestion extends HTMLElement {
                     border-radius: 15px;
                     box-shadow: 0 10px 20px var(--shadow-color, rgba(0,0,0,0.1));
                     overflow: hidden;
-                    transition: transform 0.3s, box-shadow 0.3s;
+                    transition: transform 0.3s, box-shadow 0.3s, opacity 0.5s;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    animation: fadeIn 0.5s forwards;
                 }
-                :host(:hover) {
-                    transform: translateY(-10px);
-                    box-shadow: 0 15px 30px var(--shadow-color, rgba(0,0,0,0.15));
+                @keyframes fadeIn {
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
                 }
                 .card-image {
                     width: 100%;
-                    height: 200px;
+                    height: 250px;
                     object-fit: cover;
                 }
                 .card-content {
-                    padding: 25px;
+                    padding: 30px;
                 }
                 h3 {
                     margin-top: 0;
-                    font-size: 1.5em;
+                    font-size: 1.8em;
                     color: var(--primary-color, #ff6f61);
                 }
                 p {
-                    font-size: 1em;
+                    font-size: 1.1em;
                     color: #555;
+                    line-height: 1.7;
                 }
             </style>
             <img src="${imageUrl}" alt="${title}" class="card-image">
@@ -86,11 +92,30 @@ const suggestions = [
 ];
 
 const container = document.getElementById('suggestion-container');
+const button = document.getElementById('suggestion-button');
 
-suggestions.forEach(suggestion => {
+let lastSuggestion = null;
+
+function showRandomSuggestion() {
+    let randomSuggestion;
+    
+    // 이전에 보여준 메뉴와 다른 메뉴가 나올 때까지 반복
+    do {
+        randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
+    } while (suggestions.length > 1 && randomSuggestion === lastSuggestion);
+    
+    lastSuggestion = randomSuggestion;
+
+    container.innerHTML = '';
     const card = document.createElement('dinner-suggestion');
-    card.setAttribute('title', suggestion.title);
-    card.setAttribute('recipe', suggestion.recipe);
-    card.setAttribute('imageUrl', suggestion.imageUrl);
+    card.setAttribute('title', randomSuggestion.title);
+    card.setAttribute('recipe', randomSuggestion.recipe);
+    card.setAttribute('imageUrl', randomSuggestion.imageUrl);
     container.appendChild(card);
-});
+}
+
+// 페이지 로드 시 랜덤 메뉴 표시
+document.addEventListener('DOMContentLoaded', showRandomSuggestion);
+
+// 버튼 클릭 시 다른 랜덤 메뉴 표시
+button.addEventListener('click', showRandomSuggestion);

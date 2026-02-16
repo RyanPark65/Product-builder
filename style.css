@@ -49,11 +49,26 @@ header nav a:hover {
     text-decoration: underline;
 }
 
+#suggestion-button {
+    background-color: var(--primary-color, #ff6f61);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+    margin-top: 20px;
+}
+
+#suggestion-button:hover {
+    background-color: #e05b50;
+    transform: translateY(-2px);
+}
+
 #suggestion-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
