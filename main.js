@@ -1,41 +1,47 @@
-const button = document.getElementById('suggestion-button');
-const menuNameEl = document.getElementById('menu-name');
-const menuCountEl = document.getElementById('menu-count');
-const menuSearchLinkEl = document.getElementById('menu-search-link');
-
+const suggestionButton = document.getElementById('suggestion-button');
+const suggestionCard = document.getElementById('suggestion-card');
 const menus = Array.isArray(window.MENU_DATABASE) ? window.MENU_DATABASE : [];
 let lastIndex = -1;
 
 function getRandomIndex(length) {
-    if (length <= 1) {
-        return 0;
-    }
-
+    if (length <= 1) return 0;
     let index;
     do {
         index = Math.floor(Math.random() * length);
     } while (index === lastIndex);
-
     return index;
 }
 
 function showRandomMenu() {
     if (menus.length === 0) {
-        menuNameEl.textContent = '메뉴 데이터를 불러오지 못했습니다.';
-        menuSearchLinkEl.removeAttribute('href');
-        menuSearchLinkEl.textContent = '데이터 확인 필요';
+        suggestionCard.innerHTML = '<div class="placeholder"><p>메뉴 데이터를 불러오지 못했습니다.</p></div>';
         return;
     }
 
-    const index = getRandomIndex(menus.length);
-    const menu = menus[index];
-    lastIndex = index;
+    suggestionButton.classList.add('loading');
+    suggestionButton.disabled = true;
 
-    menuNameEl.textContent = menu;
-    menuSearchLinkEl.href = `https://www.google.com/search?q=${encodeURIComponent(menu + ' recipe')}`;
-    menuSearchLinkEl.textContent = `"${menu}" 검색 결과 열기`;
+    // Simulate network latency for a better UX
+    setTimeout(() => {
+        const index = getRandomIndex(menus.length);
+        const menu = menus[index];
+        lastIndex = index;
+        
+        // Using picsum.photos for random images based on the menu name to have some consistency
+        const imageUrl = `https://picsum.photos/500/250?random=${encodeURIComponent(menu)}`;
+        const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(menu + ' 레시피')}`;
+
+        suggestionCard.innerHTML = `
+            <div class="card-content">
+                <img src="${imageUrl}" alt="${menu}">
+                <h2>${menu}</h2>
+                <a href="${googleSearchUrl}" target="_blank" rel="noopener noreferrer">레시피 찾아보기</a>
+            </div>
+        `;
+        
+        suggestionButton.classList.remove('loading');
+        suggestionButton.disabled = false;
+    }, 500);
 }
 
-menuCountEl.textContent = `총 ${menus.length}개 메뉴 데이터 사용 중`;
-button.addEventListener('click', showRandomMenu);
-showRandomMenu();
+suggestionButton.addEventListener('click', showRandomMenu);
