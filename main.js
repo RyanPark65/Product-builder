@@ -3,7 +3,7 @@ const menuNameEl = document.getElementById('menu-name');
 const menuCountEl = document.getElementById('menu-count');
 const menuSearchLinkEl = document.getElementById('menu-search-link');
 
-const menus = Array.isArray(MENU_DATABASE) ? MENU_DATABASE : [];
+const menus = Array.isArray(window.MENU_DATABASE) ? window.MENU_DATABASE : [];
 let lastIndex = -1;
 
 function getRandomIndex(length) {

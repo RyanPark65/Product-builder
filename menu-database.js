@@ -1,5 +1,5 @@
 // Source: Wikidata SPARQL (dish/food classes), fetched on 2026-02-16
-const MENU_DATABASE = [
+window.MENU_DATABASE = [
   "minced meat pie",
   "Kuler ombol",
   "Amrar ombol",
