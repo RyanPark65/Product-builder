@@ -251,13 +251,54 @@ main {
     background-color: #c9302c;
 }
 
+/* FAQ Section */
+.faq-section {
+    padding: 40px 0;
+}
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: var(--primary-color);
+}
+.faq-item {
+    background: var(--card-background);
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+.faq-item h3 {
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
 /* Footer */
 .site-footer {
     background-color: #e9e9e9;
     color: #666;
     text-align: center;
-    padding: 20px 0;
+    padding: 30px 0;
     margin-top: 40px;
+}
+
+.social-links {
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    /* In a real scenario, you would use background images for icons */
+    transition: background-color 0.3s;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
 }
 
 /* Responsive */
