@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const menus = Array.isArray(window.MENU_DATABASE) ? window.MENU_DATABASE : [];
     let lastIndex = -1;
 
+    const shareFacebookBtn = document.getElementById('share-facebook');
+    const shareTwitterBtn = document.getElementById('share-twitter');
+
     function init() {
         if (menus.length === 0) {
             suggestionCard.innerHTML = '<div class="placeholder"><p>메뉴 데이터베이스를 불러오는데 실패했습니다. 페이지를 새로고침 해주세요.</p></div>';
@@ -11,6 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         suggestionButton.addEventListener('click', showRandomMenu);
+        
+        // Add Share Button Listeners
+        shareFacebookBtn.addEventListener('click', shareOnFacebook);
+        shareTwitterBtn.addEventListener('click', shareOnTwitter);
     }
 
     function getRandomIndex(length) {
@@ -58,6 +65,19 @@ document.addEventListener('DOMContentLoaded', () => {
             suggestionButton.classList.remove('loading');
             suggestionButton.disabled = false;
         }, 500);
+    }
+
+    function shareOnFacebook(e) {
+        e.preventDefault();
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, 'Share on Facebook', 'width=600,height=400');
+    }
+
+    function shareOnTwitter(e) {
+        e.preventDefault();
+        const url = encodeURIComponent(window.location.href);
+        const text = encodeURIComponent('오늘 저녁 뭐 먹지? AI가 추천해주는 랜덤 저녁 메뉴!');
+        window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, 'Share on Twitter', 'width=600,height=400');
     }
 
     init();

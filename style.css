@@ -288,17 +288,17 @@ main {
 
 .social-links a {
     display: inline-block;
-    width: 40px;
-    height: 40px;
     margin: 0 10px;
-    background-color: #ccc;
-    border-radius: 50%;
-    /* In a real scenario, you would use background images for icons */
-    transition: background-color 0.3s;
+    transition: color 0.3s;
+    color: #888;
+}
+
+.social-links a i {
+    font-size: 24px;
 }
 
 .social-links a:hover {
-    background-color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 /* Responsive */
